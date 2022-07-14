@@ -7,13 +7,14 @@ from pathlib import Path
 from glob import glob
 
 def getLyrics():
-    def deleteHTML():
+    def deleteHTML(): 
         # Delete HTML file and folder
         os.remove(webpage)
-        shutil.rmtree(f"{os.path.basename(webpage)[0:-5]}_files")
+        shutil.rmtree(f"{webpage[0:-5]}_files")
 
     # Find the first HTML in Downloads folder
     downloadsPath = str(Path.home() / "Downloads")
+    downloadsPath = os.path.abspath(downloadsPath)
     htmlFiles = glob(f"{downloadsPath}/*.html")
     if (htmlFiles == []):
         print("There are no HTML files in your Downloads folder!")
